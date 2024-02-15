@@ -1,12 +1,4 @@
-import {
-  Controller,
-  Get,
-  Post,
-  Body,
-  Patch,
-  Param,
-  Delete,
-} from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
 import { ValidationPipe } from '@src/validation.pipe';
 import { FakultasService } from './fakultas.service';
 import { UpdateFakultaDto } from './dto/update-fakultas.dto';
@@ -32,10 +24,7 @@ export class FakultasController {
   }
 
   @Patch(':kode')
-  update(
-    @Param('kode') kode: string,
-    @Body() updateFakultaDto: UpdateFakultaDto,
-  ) {
+  update(@Param('kode') kode: string, @Body() updateFakultaDto: UpdateFakultaDto) {
     return this.fakultasService.update(kode, updateFakultaDto);
   }
 
